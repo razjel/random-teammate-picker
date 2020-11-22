@@ -6,19 +6,17 @@
  * All rights reserved.
  */
 import firebase from "firebase";
-import Database = firebase.database.Database;
-import DataSnapshot = firebase.database.DataSnapshot;
 
 export class DatabaseWrapper {
-	private firebaseDatabase: Database;
+	private firebaseDatabase: firebase.database.Database;
 
-	constructor(firebaseDatabase: Database) {
+	constructor(firebaseDatabase: firebase.database.Database) {
 		this.firebaseDatabase = firebaseDatabase;
 	}
 
 	public query(path: string): Promise<any> {
 		return new Promise((resolve, reject) => {
-			this.firebaseDatabase.ref(path).on("value", (snapshot: DataSnapshot) => {
+			this.firebaseDatabase.ref(path).on("value", (snapshot: firebase.database.DataSnapshot) => {
 				resolve(snapshot.val());
 			}, (errorObject) => {
 				reject(errorObject.code);

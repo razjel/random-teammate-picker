@@ -7,7 +7,6 @@
  */
 import "firebase/database";
 import {DatabasePath} from "./DatabasePath";
-import {DatabaseWrapper} from "./DatabaseWrapper";
 import {FirebaseInitializer} from "./FirebaseInitializer";
 import {Md} from "./Md";
 
