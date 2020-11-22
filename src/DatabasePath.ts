@@ -8,4 +8,4 @@
 export class DatabasePath {
 	public static users = `users`;
 	public static historyTeamRand = `history/teamRand`;
-}                                                                                                                 
+}

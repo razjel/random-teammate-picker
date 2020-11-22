@@ -10,4 +10,3 @@ import {DatabaseWrapper} from "./DatabaseWrapper";
 export class Md {
 	public static db: DatabaseWrapper;
 }
-
