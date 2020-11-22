@@ -15,9 +15,9 @@ FirebaseInitializer.initDatabase();
 
 async function test() {
 	const users = await Md.db.query(DatabasePath.users);
-	console.log("users:", (users));
+	console.log("users:", users);
 	const historyData = await Md.db.query(DatabasePath.historyTeamRand);
-	console.log("historyData:", (historyData));
+	console.log("historyData:", historyData);
 }
 
 test();

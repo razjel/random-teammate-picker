@@ -21,6 +21,6 @@ export class FirebaseInitializer {
 	}
 
 	public static initDatabase() {
-		Md.db = new DatabaseWrapper(firebase.database())
+		Md.db = new DatabaseWrapper(firebase.database());
 	}
 }
