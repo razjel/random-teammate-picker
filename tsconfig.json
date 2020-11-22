@@ -6,6 +6,7 @@
 		"skipLibCheck": true,
 		"experimentalDecorators": true,
 		"allowSyntheticDefaultImports": true,
+		"downlevelIteration": true,
 		"allowJs": false,
 		"outDir": "dist",
 		"lib": [

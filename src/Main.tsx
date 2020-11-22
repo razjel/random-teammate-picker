@@ -8,17 +8,12 @@
 import "firebase/database";
 import React from "react";
 import ReactDOM from "react-dom";
+import {ActionFlowInit} from "./actionFlow/ActionFlowInit";
 import {FirebaseInitializer} from "./FirebaseInitializer";
 import {RootView} from "./RootView";
 
 FirebaseInitializer.initApp();
 FirebaseInitializer.initDatabase();
+ActionFlowInit({startBrowserFrameManager: true});
 
-// async function test() {
-// 	const users = await Md.db.query(DatabasePath.users);
-// 	console.log("users:", users);
-// 	const historyData = await Md.db.query(DatabasePath.historyTeamRand);
-// 	console.log("historyData:", historyData);
-// }
-
-ReactDOM.render(<RootView />, document.createElement("div"));
+ReactDOM.render(<RootView />, document.body);

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
@@ -31,11 +32,19 @@ module.exports = {
 		port: 3333,
 	},
 	plugins: [
-		new HtmlWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			title: "random teammate picker",
+			template: "htmlTemplate/index.html",
+		}),
 		new ForkTsCheckerWebpackPlugin({
 			async: false,
 			eslint: {
 				files: "./src/**/*",
+			},
+		}),
+		new webpack.DefinePlugin({
+			"process.env": {
+				isDebug: true,
 			},
 		}),
 	],
