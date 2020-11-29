@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import {DatabaseWrapper} from "./DatabaseWrapper";
 import {Md} from "../globalModel/Md";
+import {RandomizeHistoryApi} from "./randomizeHistory/RandomizeHistoryApi";
 import {UserApi} from "./user/UserApi";
 
 /**
@@ -25,5 +26,6 @@ export class FirebaseInitializer {
 	public static initDatabase(): void {
 		const db = new DatabaseWrapper(firebase.database());
 		Md.userApi = new UserApi(db);
+		Md.randomizeHistoryApi = new RandomizeHistoryApi(db);
 	}
 }
