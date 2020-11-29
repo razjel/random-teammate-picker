@@ -11,9 +11,14 @@ import ReactDOM from "react-dom";
 import {ActionFlowInit} from "./common/actionFlow/ActionFlowInit";
 import {FirebaseInitializer} from "./firebaseApi/FirebaseInitializer";
 import {RootView} from "./RootView";
+import {InitUsers} from "./user/InitUsers";
 
-FirebaseInitializer.initApp();
-FirebaseInitializer.initDatabase();
-ActionFlowInit({startBrowserFrameManager: true});
+async function init() {
+	FirebaseInitializer.initApp();
+	FirebaseInitializer.initDatabase();
+	ActionFlowInit({startBrowserFrameManager: true});
+	await InitUsers.init();
+}
 
+init();
 ReactDOM.render(<RootView />, document.body);

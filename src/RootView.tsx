@@ -8,34 +8,21 @@
 
 import React from "react";
 import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
-import {DatabasePath} from "./firebaseApi/DatabasePath";
 import {Md} from "./globalModel/Md";
-import {User} from "./user/User";
+import {UserListView} from "./user/UserListView";
+import {UserActions} from "./user/UserActions";
 
 export class RootView extends ConnectedComponent<any, any> {
-	public users: any;
-	public historyData: any;
-
-	protected _onNewProps() {
-		super._onNewProps();
-		this.cleanInvalidatingProperties();
-		this.addInvalidatingProperty(Md.users.all, false);
-	}
-
-	public async componentDidMount() {
-		this.users = await Md.db.query(DatabasePath.users);
-		this.historyData = await Md.db.query(DatabasePath.historyTeamRand);
-
-		for (const userId in this.users) {
-			Md.users.all.push(new User(userId, this.users[userId]));
-		}
-	}
-
 	public render() {
 		return (
 			<div>
-				hello
-				{JSON.stringify(Md.users.all, null, 2)}
+				<div>
+					<button onClick={UserActions.randomize}>randomize</button>
+					<button onClick={() => {}}>accept result on server</button>
+					<button onClick={() => {}}>revoke last result</button>
+				</div>
+				<UserListView title={"all users"} users={Md.users.all.binds} />
+				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
 			</div>
 		);
 	}
