@@ -28,6 +28,7 @@
 		"no-unsafe-finally": 0,
 		"no-useless-catch": 0,
 		"no-useless-escape": 0,
+		"no-debugger": 0,
 		//56 errors, regex
 		"no-inner-declarations": 0,
 		"no-self-assign": 0,

@@ -7,25 +7,36 @@
  */
 
 import React from "react";
+import {BindUtil} from "./actionFlow/binding/BindUtil";
+import {ConnectedComponent} from "./actionFlow/components/ConnectedComponent";
 import {DatabasePath} from "./DatabasePath";
 import {Md} from "./Md";
+import {User} from "./User";
 
-export class RootView extends React.Component<any, any> {
+export class RootView extends ConnectedComponent<any, any> {
 	public users: any;
 	public historyData: any;
+
+	protected _onNewProps() {
+		super._onNewProps();
+		this.cleanInvalidatingProperties();
+		this.addInvalidatingProperty(Md.users.all, false);
+	}
 
 	public async componentDidMount() {
 		this.users = await Md.db.query(DatabasePath.users);
 		this.historyData = await Md.db.query(DatabasePath.historyTeamRand);
-		this.forceUpdate();
+
+		for (const userId in this.users) {
+			Md.users.all.push(new User(userId, this.users[userId]));
+		}
 	}
 
 	public render() {
 		return (
 			<div>
 				hello
-				{JSON.stringify(this.users, null, 2)}
-				{JSON.stringify(this.historyData, null, 2)}
+				{JSON.stringify(Md.users.all, null, 2)}
 			</div>
 		);
 	}
