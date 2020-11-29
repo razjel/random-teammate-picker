@@ -25,6 +25,7 @@ export class AddUserView extends ConnectedComponent<Props, any> {
 		super.render();
 		return (
 			<div>
+				<h3>add user</h3>
 				<input ref={(c) => (this.inputName = c)} title={`name`} />
 				<button onClick={this.addUser}>add</button>
 			</div>
