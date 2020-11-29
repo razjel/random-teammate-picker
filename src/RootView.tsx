@@ -7,7 +7,6 @@
  */
 
 import React from "react";
-import {BindUtil} from "./actionFlow/binding/BindUtil";
 import {ConnectedComponent} from "./actionFlow/components/ConnectedComponent";
 import {DatabasePath} from "./DatabasePath";
 import {Md} from "./Md";
