@@ -10,6 +10,7 @@ import React from "react";
 import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
 import {Md} from "./globalModel/Md";
 import {AddUserView} from "./user/AddUserView";
+import {RemoveableUserListView} from "./user/RemoveableUserListView";
 import {UserListView} from "./user/UserListView";
 import {UserActions} from "./user/UserActions";
 
@@ -22,7 +23,7 @@ export class RootView extends ConnectedComponent<any, any> {
 					<button onClick={() => {}}>accept result on server</button>
 					<button onClick={() => {}}>revoke last result</button>
 				</div>
-				<UserListView title={"all users"} users={Md.users.all.binds} />
+				<RemoveableUserListView title={"all users"} users={Md.users.all.binds} />
 				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
 				<AddUserView />
 			</div>

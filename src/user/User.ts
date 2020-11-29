@@ -11,7 +11,7 @@ export class User extends AFDataObject {
 	public id: string;
 	public name: string;
 
-	constructor(id: string, name: string) {
+	constructor(id?: string, name?: string) {
 		super();
 		this.id = id;
 		this.name = name;

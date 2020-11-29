@@ -21,7 +21,11 @@ export class UserApi {
 		return this.db.query(DatabasePath.users);
 	}
 
-	public add(userId: string, userName: string): Promise<boolean> {
-		return this.db.set(DatabasePath.users);
+	public add(userName: string): Promise<string> {
+		return this.db.listAdd(DatabasePath.users, userName);
+	}
+
+	public remove(userId: string): Promise<string> {
+		return this.db.listRemove(DatabasePath.users, userId);
 	}
 }

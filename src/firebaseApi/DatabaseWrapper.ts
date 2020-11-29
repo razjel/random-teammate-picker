@@ -28,7 +28,13 @@ export class DatabaseWrapper {
 		});
 	}
 
-	public set(path: string, value:any): Promise<any> {
-		return this.firebaseDatabase.ref(path).set(value);
+	public async listAdd(path: string, value: any): Promise<string> {
+		const ref = this.firebaseDatabase.ref(path).push();
+		await ref.set(value);
+		return ref.key;
+	}
+
+	public listRemove(path: string, id: any): Promise<any> {
+		return this.firebaseDatabase.ref(`${path}/${id}`).set(null);
 	}
 }

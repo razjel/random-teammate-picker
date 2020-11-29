@@ -27,12 +27,27 @@ export class UserActions {
 	}
 
 	@afAsyncAction("UserActions.addUser")
-	public static async addUser(user: User) {
-		Md.users.all.push(user);
-		const success = await Md.userApi.add(user.id, user.name);
-		if (!success) {
-			Md.users.all.removeByKey(user.id);
+	public static async addUser(userName: string) {
+		const user = new User();
+		user.name = userName;
+		try {
+			const userId = await Md.userApi.add(user.name);
+			user.id = userId;
+			Md.users.all.push(user);
+		} catch (error) {
 			alert(`failed to add user: ${user.id}-${user.name}`);
+		}
+	}
+
+	@afAsyncAction("UserActions.removeUser")
+	public static async removeUser(userId: string) {
+		const user = Md.users.all.getByKey(userId);
+		try {
+			Md.users.all.removeByKey(userId);
+			await Md.userApi.remove(userId);
+		} catch (error) {
+			Md.users.all.push(user);
+			alert(`failed to remove user: ${user.id}-${user.name}`);
 		}
 	}
 }
