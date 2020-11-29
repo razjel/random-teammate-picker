@@ -8,8 +8,8 @@
 import "firebase/database";
 import React from "react";
 import ReactDOM from "react-dom";
-import {ActionFlowInit} from "./actionFlow/ActionFlowInit";
-import {FirebaseInitializer} from "./FirebaseInitializer";
+import {ActionFlowInit} from "./common/actionFlow/ActionFlowInit";
+import {FirebaseInitializer} from "./firebaseApi/FirebaseInitializer";
 import {RootView} from "./RootView";
 
 FirebaseInitializer.initApp();

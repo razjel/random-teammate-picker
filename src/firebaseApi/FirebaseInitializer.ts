@@ -1,6 +1,6 @@
 import firebase from "firebase";
 import {DatabaseWrapper} from "./DatabaseWrapper";
-import {Md} from "./Md";
+import {Md} from "../globalModel/Md";
 
 /**
  * Created by Szczepan Czaicki, s.czaicki@getprintbox.com

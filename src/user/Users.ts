@@ -5,8 +5,8 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {AFDataObject} from "./actionFlow/binding/AFDataObject";
-import {BindArray} from "./actionFlow/binding/BindArray";
+import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
+import {BindArray} from "../common/actionFlow/binding/BindArray";
 import {User} from "./User";
 
 export class Users extends AFDataObject {

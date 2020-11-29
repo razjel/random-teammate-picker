@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-import {afAction} from "../actionFlow/action/decorators/AFActionDecorators";
+import {afAction} from "./action/decorators/AFActionDecorators";
 
 export class BrowserFrameManager {
 	public static init(): void {

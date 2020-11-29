@@ -5,7 +5,7 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {AFDataObject} from "./actionFlow/binding/AFDataObject";
+import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
 
 export class User extends AFDataObject {
 	public id: string;

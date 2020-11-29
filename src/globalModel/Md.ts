@@ -5,8 +5,8 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {DatabaseWrapper} from "./DatabaseWrapper";
-import {Users} from "./Users";
+import {DatabaseWrapper} from "../firebaseApi/DatabaseWrapper";
+import {Users} from "../user/Users";
 
 export class Md {
 	public static db: DatabaseWrapper;

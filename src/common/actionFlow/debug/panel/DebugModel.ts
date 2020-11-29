@@ -7,7 +7,7 @@
  */
 
 import {BindArray} from "../../binding/BindArray";
-import {ActionTreeNode} from "./../actionTree/ActionTreeNode";
+import {ActionTreeNode} from "../actionTree/ActionTreeNode";
 
 export class DebugModel {
 	public scenario = "";

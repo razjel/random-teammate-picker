@@ -7,10 +7,10 @@
  */
 
 import React from "react";
-import {ConnectedComponent} from "./actionFlow/components/ConnectedComponent";
-import {DatabasePath} from "./DatabasePath";
-import {Md} from "./Md";
-import {User} from "./User";
+import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
+import {DatabasePath} from "./firebaseApi/DatabasePath";
+import {Md} from "./globalModel/Md";
+import {User} from "./user/User";
 
 export class RootView extends ConnectedComponent<any, any> {
 	public users: any;
