@@ -6,9 +6,10 @@
  * All rights reserved.
  */
 import {DatabaseWrapper} from "../firebaseApi/DatabaseWrapper";
+import {UserApi} from "../firebaseApi/user/UserApi";
 import {Users} from "../user/Users";
 
 export class Md {
-	public static db: DatabaseWrapper;
+	public static userApi: UserApi;
 	public static users = new Users();
 }

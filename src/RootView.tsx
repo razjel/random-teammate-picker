@@ -9,6 +9,7 @@
 import React from "react";
 import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
 import {Md} from "./globalModel/Md";
+import {AddUserView} from "./user/AddUserView";
 import {UserListView} from "./user/UserListView";
 import {UserActions} from "./user/UserActions";
 
@@ -23,6 +24,7 @@ export class RootView extends ConnectedComponent<any, any> {
 				</div>
 				<UserListView title={"all users"} users={Md.users.all.binds} />
 				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
+				<AddUserView />
 			</div>
 		);
 	}

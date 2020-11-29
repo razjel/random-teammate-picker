@@ -27,4 +27,8 @@ export class DatabaseWrapper {
 			);
 		});
 	}
+
+	public set(path: string, value:any): Promise<any> {
+		return this.firebaseDatabase.ref(path).set(value);
+	}
 }

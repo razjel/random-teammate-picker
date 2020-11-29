@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import {DatabaseWrapper} from "./DatabaseWrapper";
 import {Md} from "../globalModel/Md";
+import {UserApi} from "./user/UserApi";
 
 /**
  * Created by Szczepan Czaicki, s.czaicki@getprintbox.com
@@ -22,6 +23,7 @@ export class FirebaseInitializer {
 	}
 
 	public static initDatabase(): void {
-		Md.db = new DatabaseWrapper(firebase.database());
+		const db = new DatabaseWrapper(firebase.database());
+		Md.userApi = new UserApi(db);
 	}
 }
