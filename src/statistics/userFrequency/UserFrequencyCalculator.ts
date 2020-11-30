@@ -6,11 +6,11 @@
  * All rights reserved.
  */
 import {UserId} from "../../user/UserId";
-import {RandomizeEntry} from "../../randomize/RandomizeEntry";
+import {RandomizeHistoryEntry} from "../../randomize/RandomizeHistoryEntry";
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 export class UserFrequencyCalculator {
-	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {
+	public calculate(entries: RandomizeHistoryEntry[]): UserFrequencyStatistics {
 		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {
 			const userCount = entry.order.length;

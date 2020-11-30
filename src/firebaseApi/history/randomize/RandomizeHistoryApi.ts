@@ -1,4 +1,4 @@
-import {RandomizeEntry} from "../../../randomize/RandomizeEntry";
+import {RandomizeHistoryEntry} from "../../../randomize/RandomizeHistoryEntry";
 import {Randomize} from "../../../randomize/Randomize";
 import {UserId} from "../../../user/UserId";
 import {DatabasePath} from "../../DatabasePath";
@@ -31,7 +31,7 @@ export class RandomizeHistoryApi {
 					for (const key in entriesMap) {
 						const order = entriesMap[key];
 						history.history.push(
-							new RandomizeEntry(new Date(`${year}-${month}-${day}T12:00:00.000Z`), order.split(";"))
+							new RandomizeHistoryEntry(new Date(`${year}-${month}-${day}T12:00:00.000Z`), order.split(";"))
 						);
 					}
 				}

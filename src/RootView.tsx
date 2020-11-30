@@ -35,7 +35,7 @@ export class RootView extends ConnectedComponent<any, any> {
 		return (
 			<div>
 				<RemoveableUserListView title={"all users"} users={Md.users.all.binds} />
-				<UserListView title={"randomized users"} users={Md.randomize.randomSorted.binds} />
+				<UserListView title={"randomized users"} users={Md.randomize.randomizedOrder.binds} />
 				<AddUserView />
 			</div>
 		);
@@ -45,7 +45,7 @@ export class RootView extends ConnectedComponent<any, any> {
 		return (
 			<div>
 				<UserListView title={"all users"} users={Md.users.all.binds} />
-				<UserListView title={"randomized users"} users={Md.randomize.randomSorted.binds} />
+				<UserListView title={"randomized users"} users={Md.randomize.randomizedOrder.binds} />
 			</div>
 		);
 	}

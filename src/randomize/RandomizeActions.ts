@@ -21,12 +21,12 @@ export class RandomizeActions {
 	@afAction("RandomizeActions.randomize")
 	public static randomize() {
 		const randomizedUsers = UserRandomizer.randomize(Md.users.all.toArray());
-		Md.randomize.randomSorted.clear();
-		Md.randomize.randomSorted.pushArray(randomizedUsers);
+		Md.randomize.randomizedOrder.clear();
+		Md.randomize.randomizedOrder.pushArray(randomizedUsers);
 	}
 
 	@afAsyncAction("UserActions.addRandomizeResultToServer")
 	public static async addRandomizeResultToServer() {
-		await Md.randomizeHistoryApi.addRandomizeResult(Md.randomize.randomSorted.map((user) => user.id));
+		await Md.randomizeHistoryApi.addRandomizeResult(Md.randomize.randomizedOrder.map((user) => user.id));
 	}
 }

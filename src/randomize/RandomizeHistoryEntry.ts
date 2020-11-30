@@ -9,7 +9,7 @@ import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
 import {BindArray} from "../common/actionFlow/binding/BindArray";
 import {UserId} from "../user/UserId";
 
-export class RandomizeEntry extends AFDataObject {
+export class RandomizeHistoryEntry extends AFDataObject {
 	public date: Date = null;
 	public order = new BindArray<UserId>();
 
@@ -17,6 +17,6 @@ export class RandomizeEntry extends AFDataObject {
 		super();
 		this.date = date;
 		this.order = new BindArray<UserId>(order);
-		this.__initBind("RandomizeEntry", RandomizeEntry);
+		this.__initBind("RandomizeEntry", RandomizeHistoryEntry);
 	}
 }
