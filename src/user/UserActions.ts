@@ -7,7 +7,6 @@
  */
 import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
-import {InitUsers} from "./InitUsers";
 import {User} from "./User";
 import {UserRandomizer} from "./UserRandomizer";
 
@@ -21,7 +20,7 @@ export class UserActions {
 
 	@afAsyncAction("UserActions.listUsers")
 	public static async listUsers() {
-		const allUsers = InitUsers.init(await Md.userApi.list());
+		const allUsers = await Md.userApi.list();
 		Md.users.all.clear();
 		Md.users.all.pushArray(allUsers);
 	}

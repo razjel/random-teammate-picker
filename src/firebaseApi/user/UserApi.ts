@@ -1,3 +1,4 @@
+import {User} from "../../user/User";
 import {DatabasePath} from "../DatabasePath";
 import {DatabaseWrapper} from "../DatabaseWrapper";
 import {UsersDTO} from "./UsersDTO";
@@ -16,8 +17,13 @@ export class UserApi {
 		this.db = db;
 	}
 
-	public list(): Promise<UsersDTO> {
-		return this.db.query(DatabasePath.users);
+	public async list(): Promise<User[]> {
+		const usersDTO = await this.db.query(DatabasePath.users);
+		const users: User[] = [];
+		for (const userId in usersDTO) {
+			users.push(new User(userId, usersDTO[userId]));
+		}
+		return users;
 	}
 
 	public add(userId: string, userName: string): Promise<void> {
