@@ -19,6 +19,11 @@ export class UserActions {
 		Md.users.randomSorted.pushArray(randomizedUsers);
 	}
 
+	@afAsyncAction("UserActions.addRandomizeResultToServer")
+	public static async addRandomizeResultToServer() {
+		await Md.randomizeHistoryApi.addRandomizeResult(Md.users.randomSorted.map((user) => user.id));
+	}
+
 	@afAsyncAction("UserActions.listUsers")
 	public static async listUsers() {
 		const allUsers = await Md.userApi.list();

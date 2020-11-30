@@ -21,8 +21,7 @@ export class RootView extends ConnectedComponent<any, any> {
 			<div>
 				<div>
 					<button onClick={UserActions.randomize}>randomize</button>
-					<button onClick={() => {}}>accept result on server</button>
-					<button onClick={() => {}}>revoke last result</button>
+					<button onClick={UserActions.addRandomizeResultToServer}>accept result on server</button>
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}

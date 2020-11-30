@@ -28,17 +28,15 @@ export class DatabaseWrapper {
 		});
 	}
 
-	public add(path: string, id: string, value: any): Promise<void> {
-		return this.firebaseDatabase.ref(`${path}/${id}`).set(value);
+	public add(path: string, value: any): Promise<void> {
+		return this.firebaseDatabase.ref(path).set(value);
 	}
 
-	public async generateNewIdAndAdd(path: string, value: any): Promise<string> {
-		const ref = this.firebaseDatabase.ref(path).push();
-		await ref.set(value);
-		return ref.key;
+	public remove(path: string): Promise<any> {
+		return this.firebaseDatabase.ref(path).set(null);
 	}
 
-	public remove(path: string, id: any): Promise<any> {
-		return this.firebaseDatabase.ref(`${path}/${id}`).set(null);
+	public async pushToArray(path: string, value: any): Promise<any> {
+		return this.firebaseDatabase.ref(path).push().set(value);
 	}
 }

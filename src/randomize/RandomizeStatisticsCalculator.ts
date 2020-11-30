@@ -11,7 +11,6 @@ import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 export class RandomizeStatisticsCalculator {
 	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {
-		console.log("RandomizeStatisticsCalculator.calculate");
 		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {
 			const userCount = entry.order.length;

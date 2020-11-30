@@ -28,6 +28,15 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 				data.push({userId, value});
 			}
 		}
+		data.sort((a, b) => {
+			if (a.value === b.value) {
+				return 0;
+			} else if (a.value > b.value) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
 		return data;
 	}
 
@@ -36,7 +45,7 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 			<div>
 				<h3>user frequency chart</h3>
 				<BarChart
-					width={500}
+					width={600}
 					height={300}
 					data={this.getChartData()}
 					margin={{

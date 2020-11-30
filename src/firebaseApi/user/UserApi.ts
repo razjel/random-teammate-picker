@@ -28,10 +28,10 @@ export class UserApi {
 	}
 
 	public add(userId: UserId, userName: string): Promise<void> {
-		return this.db.add(DatabasePath.users, userId, userName);
+		return this.db.add([DatabasePath.users, userId].join("/"), userName);
 	}
 
 	public remove(userId: UserId): Promise<string> {
-		return this.db.remove(DatabasePath.users, userId);
+		return this.db.remove([DatabasePath.users, userId].join("/"));
 	}
 }
