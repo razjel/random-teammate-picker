@@ -28,10 +28,7 @@ export class RandomizeHistoryApi {
 				for (const day in dayDTO) {
 					for (const userOrder of dayDTO[day]) {
 						history.entries.push(
-							new RandomizeEntry(
-								new Date(parseInt(year), parseInt(month), parseInt(day)),
-								userOrder.split(";")
-							)
+							new RandomizeEntry(new Date(`${year}-${month}-${day}T12:00:00.000Z`), userOrder.split(";"))
 						);
 					}
 				}
