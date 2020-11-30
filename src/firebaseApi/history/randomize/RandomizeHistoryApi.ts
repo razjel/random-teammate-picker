@@ -1,5 +1,5 @@
 import {RandomizeEntry} from "../../../randomize/RandomizeEntry";
-import {RandomizeData} from "../../../randomize/RandomizeData";
+import {Randomize} from "../../../randomize/Randomize";
 import {UserId} from "../../../user/UserId";
 import {DatabasePath} from "../../DatabasePath";
 import {DatabaseWrapper} from "../../DatabaseWrapper";
@@ -19,9 +19,9 @@ export class RandomizeHistoryApi {
 		this.db = db;
 	}
 
-	public async list(): Promise<RandomizeData> {
+	public async list(): Promise<Randomize> {
 		const historyDTO: RandomizeHistoryYearDTO = await this.db.query(DatabasePath.randomizeHistory);
-		const history = new RandomizeData();
+		const history = new Randomize();
 		for (const year in historyDTO) {
 			const monthDTO = historyDTO[year];
 			for (const month in monthDTO) {

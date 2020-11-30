@@ -10,12 +10,12 @@ import {RandomizeEntry} from "./RandomizeEntry";
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-export class RandomizeData extends AFDataObject {
+export class Randomize extends AFDataObject {
 	public history = new BindArray<RandomizeEntry>();
 	public randomSorted = new BindArray<User>();
 
 	constructor() {
 		super();
-		this.__initBind("RandomizeHistory", RandomizeData);
+		this.__initBind("RandomizeHistory", Randomize);
 	}
 }
