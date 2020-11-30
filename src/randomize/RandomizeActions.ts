@@ -8,6 +8,7 @@
 
 import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
+import {RandomizedOrder} from "./RandomizedOrder";
 import {UserRandomizer} from "./UserRandomizer";
 
 export class RandomizeActions {
@@ -21,8 +22,9 @@ export class RandomizeActions {
 	@afAction("RandomizeActions.randomize")
 	public static randomize() {
 		const randomizedUsers = UserRandomizer.randomize(Md.users.all.toArray());
-		Md.randomize.randomizedOrder.clear();
-		Md.randomize.randomizedOrder.pushArray(randomizedUsers);
+		Md.randomize.randomizedOrder.regenerateId();
+		Md.randomize.randomizedOrder.order.clear();
+		Md.randomize.randomizedOrder.order.pushArray(randomizedUsers);
 	}
 
 	@afAsyncAction("UserActions.addRandomizeResultToServer")
