@@ -23,4 +23,4 @@ async function init() {
 }
 
 init();
-ReactDOM.render(<RootView />, document.body);
+ReactDOM.render(<RootView />, document.getElementById("app"));
