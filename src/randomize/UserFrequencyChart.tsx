@@ -7,6 +7,7 @@
  */
 
 import React from "react";
+import {Bar, BarChart, CartesianGrid, XAxis, YAxis} from "recharts";
 import {BaseProps} from "../common/actionFlow/components/BaseProps";
 import {ConnectedComponent} from "../common/actionFlow/components/ConnectedComponent";
 import {Md} from "../globalModel/Md";
@@ -20,27 +21,36 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 		this.addInvalidatingProperty(Md.randomize.binds.userFrequency);
 	}
 
-	public displayUserFrequency() {
-		if (!Md.randomize.userFrequency) {
-			return;
+	public getChartData() {
+		const data = [];
+		if (Md.randomize.userFrequency) {
+			for (const [userId, value] of Md.randomize.userFrequency.entries()) {
+				data.push({userId, value});
+			}
 		}
-		const result = [];
-		for (const [userId, value] of Md.randomize.userFrequency.entries()) {
-			result.push(
-				<div>
-					{userId}: {value}
-				</div>
-			);
-		}
-		return result;
+		return data;
 	}
 
 	public render() {
-		console.log("UserFrequencyChart.render");
 		return (
 			<div>
 				<h3>user frequency chart</h3>
-				{this.displayUserFrequency()}
+				<BarChart
+					width={500}
+					height={300}
+					data={this.getChartData()}
+					margin={{
+						top: 5,
+						right: 30,
+						left: 20,
+						bottom: 5,
+					}}
+				>
+					<CartesianGrid strokeDasharray="3 3" />
+					<XAxis dataKey="userId" />
+					<YAxis />
+					<Bar dataKey="value" fill="#8884d8" />
+				</BarChart>
 			</div>
 		);
 	}
