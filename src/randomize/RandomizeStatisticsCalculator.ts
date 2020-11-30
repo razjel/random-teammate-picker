@@ -5,12 +5,25 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
+import {BindArray} from "../common/actionFlow/binding/BindArray";
+import {UserId} from "../user/UserId";
 import {RandomizeEntry} from "./RandomizeEntry";
+import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 export class RandomizeStatisticsCalculator {
-	public calculate(entries: RandomizeEntry[]) {
+	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {
+		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {
-			entry.order;
+			const userCount = entry.order.length;
+			for (let i = 0; i < userCount; i++) {
+				const userId = entry.order.get(i);
+				if (!userFrequency.has(userId)) {
+					userFrequency.set(userId, 0);
+				}
+				const frequencyValue = userCount - i;
+				userFrequency.set(userId, userFrequency.get(userId) + frequencyValue);
+			}
 		}
+		return userFrequency;
 	}
 }

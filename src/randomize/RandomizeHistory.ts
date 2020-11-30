@@ -1,6 +1,7 @@
 import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
 import {BindArray} from "../common/actionFlow/binding/BindArray";
 import {RandomizeEntry} from "./RandomizeEntry";
+import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 /**
  * Created by Szczepan Czaicki, s.czaicki@getprintbox.com
@@ -11,7 +12,7 @@ import {RandomizeEntry} from "./RandomizeEntry";
  */
 export class RandomizeHistory extends AFDataObject {
 	public entries = new BindArray<RandomizeEntry>();
-	public calculatedStatistics: any;
+	public userFrequency: UserFrequencyStatistics = null;
 
 	constructor() {
 		super();

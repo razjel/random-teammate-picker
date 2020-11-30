@@ -6,8 +6,9 @@
  * All rights reserved.
  */
 
-import {afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
+import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
+import {RandomizeStatisticsCalculator} from "./RandomizeStatisticsCalculator";
 
 export class RandomizeActions {
 	@afAsyncAction("RandomizeActions.listAll")
@@ -15,5 +16,11 @@ export class RandomizeActions {
 		const history = await Md.randomizeHistoryApi.list();
 		Md.randomize.entries.clear();
 		Md.randomize.entries.pushArray(history.entries);
+	}
+
+	@afAction("RandomizeActions.calculateUserFrequencyForAllHistory")
+	public static calculateUserFrequencyForAllHistory() {
+		const userFrequencyStatistics = new RandomizeStatisticsCalculator().calculate(Md.randomize.entries.toArray());
+		Md.randomize.userFrequency = userFrequencyStatistics;
 	}
 }
