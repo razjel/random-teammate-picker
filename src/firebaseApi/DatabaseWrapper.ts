@@ -29,10 +29,10 @@ export class DatabaseWrapper {
 	}
 
 	public add(path: string, id: string, value: any): Promise<void> {
-		return this.firebaseDatabase.ref(path).push(id).set(value);
+		return this.firebaseDatabase.ref(`${path}/${id}`).set(value);
 	}
 
-	public async listAdd(path: string, value: any): Promise<string> {
+	public async generateNewIdAndAdd(path: string, value: any): Promise<string> {
 		const ref = this.firebaseDatabase.ref(path).push();
 		await ref.set(value);
 		return ref.key;

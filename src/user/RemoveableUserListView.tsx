@@ -26,7 +26,7 @@ export class RemoveableUserListView extends ConnectedComponent<Props, any> {
 				<h3>{this.props.title}</h3>
 				{this.props.users.map((user) => (
 					<div>
-						<span>{user.name}</span>
+						<span>{user.name} </span>
 						<button onClick={() => UserActions.removeUser(user.id)}>remove</button>
 					</div>
 				))}

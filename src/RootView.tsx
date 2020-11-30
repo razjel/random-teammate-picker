@@ -42,6 +42,7 @@ export class RootView extends ConnectedComponent<any, any> {
 					<button onClick={() => {}}>accept result on server</button>
 					<button onClick={() => {}}>revoke last result</button>
 				</div>
+				{/*{this.adminView()}*/}
 				{this.normalUserView()}
 			</div>
 		);
