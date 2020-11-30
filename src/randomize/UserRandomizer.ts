@@ -5,7 +5,7 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {User} from "./User";
+import {User} from "../user/User";
 
 export class UserRandomizer {
 	public static randomize(users: User[]) {

@@ -9,6 +9,7 @@
 import React from "react";
 import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
 import {Md} from "./globalModel/Md";
+import {RandomizeActions} from "./randomize/RandomizeActions";
 import {UserFrequencyChart} from "./statistics/userFrequency/UserFrequencyChart";
 import {AddUserView} from "./user/AddUserView";
 import {RemoveableUserListView} from "./user/RemoveableUserListView";
@@ -20,8 +21,8 @@ export class RootView extends ConnectedComponent<any, any> {
 		return (
 			<div>
 				<div>
-					<button onClick={UserActions.randomize}>randomize</button>
-					<button onClick={UserActions.addRandomizeResultToServer}>accept result on server</button>
+					<button onClick={RandomizeActions.randomize}>randomize</button>
+					<button onClick={RandomizeActions.addRandomizeResultToServer}>accept result on server</button>
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}
@@ -34,7 +35,7 @@ export class RootView extends ConnectedComponent<any, any> {
 		return (
 			<div>
 				<RemoveableUserListView title={"all users"} users={Md.users.all.binds} />
-				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
+				<UserListView title={"randomized users"} users={Md.randomize.randomSorted.binds} />
 				<AddUserView />
 			</div>
 		);
@@ -44,7 +45,7 @@ export class RootView extends ConnectedComponent<any, any> {
 		return (
 			<div>
 				<UserListView title={"all users"} users={Md.users.all.binds} />
-				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
+				<UserListView title={"randomized users"} users={Md.randomize.randomSorted.binds} />
 			</div>
 		);
 	}

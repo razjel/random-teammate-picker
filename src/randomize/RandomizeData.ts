@@ -1,5 +1,6 @@
 import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
 import {BindArray} from "../common/actionFlow/binding/BindArray";
+import {User} from "../user/User";
 import {RandomizeEntry} from "./RandomizeEntry";
 
 /**
@@ -9,11 +10,12 @@ import {RandomizeEntry} from "./RandomizeEntry";
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-export class RandomizeHistory extends AFDataObject {
-	public entries = new BindArray<RandomizeEntry>();
+export class RandomizeData extends AFDataObject {
+	public history = new BindArray<RandomizeEntry>();
+	public randomSorted = new BindArray<User>();
 
 	constructor() {
 		super();
-		this.__initBind("RandomizeHistory", RandomizeHistory);
+		this.__initBind("RandomizeHistory", RandomizeData);
 	}
 }

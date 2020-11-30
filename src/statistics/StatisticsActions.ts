@@ -12,7 +12,7 @@ import {UserFrequencyCalculator} from "./userFrequency/UserFrequencyCalculator";
 export class StatisticsActions {
 	@afAction("StatisticsActions.calculateUserFrequencyForAllHistory")
 	public static calculateUserFrequencyForAllHistory() {
-		const userFrequencyStatistics = new UserFrequencyCalculator().calculate(Md.randomize.entries.toArray());
+		const userFrequencyStatistics = new UserFrequencyCalculator().calculate(Md.randomize.history.toArray());
 		Md.statistics.userFrequency = userFrequencyStatistics;
 	}
 }

@@ -5,25 +5,12 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
+import {afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
 import {User} from "./User";
 import {UserId} from "./UserId";
-import {UserRandomizer} from "./UserRandomizer";
 
 export class UserActions {
-	@afAction("UserActions.randomize")
-	public static randomize() {
-		const randomizedUsers = UserRandomizer.randomize(Md.users.all.toArray());
-		Md.users.randomSorted.clear();
-		Md.users.randomSorted.pushArray(randomizedUsers);
-	}
-
-	@afAsyncAction("UserActions.addRandomizeResultToServer")
-	public static async addRandomizeResultToServer() {
-		await Md.randomizeHistoryApi.addRandomizeResult(Md.users.randomSorted.map((user) => user.id));
-	}
-
 	@afAsyncAction("UserActions.listUsers")
 	public static async listUsers() {
 		const allUsers = await Md.userApi.list();

@@ -11,7 +11,6 @@ import {User} from "./User";
 
 export class Users extends AFDataObject {
 	public all = new BindArray<User>();
-	public randomSorted = new BindArray<User>();
 
 	constructor() {
 		super();

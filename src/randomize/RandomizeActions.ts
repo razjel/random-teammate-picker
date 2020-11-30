@@ -6,14 +6,27 @@
  * All rights reserved.
  */
 
-import {afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
+import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
+import {UserRandomizer} from "./UserRandomizer";
 
 export class RandomizeActions {
 	@afAsyncAction("RandomizeActions.listAll")
 	public static async listAllHistoryFromServer() {
 		const history = await Md.randomizeHistoryApi.list();
-		Md.randomize.entries.clear();
-		Md.randomize.entries.pushArray(history.entries);
+		Md.randomize.history.clear();
+		Md.randomize.history.pushArray(history.history);
+	}
+
+	@afAction("RandomizeActions.randomize")
+	public static randomize() {
+		const randomizedUsers = UserRandomizer.randomize(Md.users.all.toArray());
+		Md.randomize.randomSorted.clear();
+		Md.randomize.randomSorted.pushArray(randomizedUsers);
+	}
+
+	@afAsyncAction("UserActions.addRandomizeResultToServer")
+	public static async addRandomizeResultToServer() {
+		await Md.randomizeHistoryApi.addRandomizeResult(Md.randomize.randomSorted.map((user) => user.id));
 	}
 }
