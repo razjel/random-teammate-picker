@@ -9,6 +9,7 @@
 import React from "react";
 import {ConnectedComponent} from "./common/actionFlow/components/ConnectedComponent";
 import {Md} from "./globalModel/Md";
+import {UserFrequencyChart} from "./randomize/UserFrequencyChart";
 import {AddUserView} from "./user/AddUserView";
 import {RemoveableUserListView} from "./user/RemoveableUserListView";
 import {UserListView} from "./user/UserListView";
@@ -25,6 +26,7 @@ export class RootView extends ConnectedComponent<any, any> {
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}
+				<UserFrequencyChart />
 			</div>
 		);
 	}

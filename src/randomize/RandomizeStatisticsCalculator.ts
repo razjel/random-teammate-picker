@@ -5,13 +5,13 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {BindArray} from "../common/actionFlow/binding/BindArray";
 import {UserId} from "../user/UserId";
 import {RandomizeEntry} from "./RandomizeEntry";
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 export class RandomizeStatisticsCalculator {
 	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {
+		console.log("RandomizeStatisticsCalculator.calculate");
 		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {
 			const userCount = entry.order.length;
