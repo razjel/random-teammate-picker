@@ -6,13 +6,12 @@
  * All rights reserved.
  */
 
-import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
+import {afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
-import {UserFrequencyCalculator} from "../statistics/userFrequency/UserFrequencyCalculator";
 
 export class RandomizeActions {
 	@afAsyncAction("RandomizeActions.listAll")
-	public static async listAll() {
+	public static async listAllHistoryFromServer() {
 		const history = await Md.randomizeHistoryApi.list();
 		Md.randomize.entries.clear();
 		Md.randomize.entries.pushArray(history.entries);

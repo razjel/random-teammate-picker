@@ -19,7 +19,7 @@ async function init() {
 	FirebaseInitializer.initApp();
 	FirebaseInitializer.initDatabase();
 	ActionFlowInit({startBrowserFrameManager: true});
-	await Promise.all([UserActions.listUsers(), RandomizeActions.listAll()]);
+	await Promise.all([UserActions.listUsers(), RandomizeActions.listAllHistoryFromServer()]);
 	StatisticsActions.calculateUserFrequencyForAllHistory();
 }
 

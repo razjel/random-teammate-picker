@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import {DatabaseWrapper} from "./DatabaseWrapper";
 import {Md} from "../globalModel/Md";
-import {RandomizeHistoryApi} from "./randomizeHistory/RandomizeHistoryApi";
+import {RandomizeHistoryApi} from "./history/randomize/RandomizeHistoryApi";
 import {UserApi} from "./user/UserApi";
 
 /**

@@ -6,7 +6,7 @@
  * All rights reserved.
  */
 import {DatabaseWrapper} from "../firebaseApi/DatabaseWrapper";
-import {RandomizeHistoryApi} from "../firebaseApi/randomizeHistory/RandomizeHistoryApi";
+import {RandomizeHistoryApi} from "../firebaseApi/history/randomize/RandomizeHistoryApi";
 import {UserApi} from "../firebaseApi/user/UserApi";
 import {RandomizeHistory} from "../randomize/RandomizeHistory";
 import {Statistics} from "../statistics/Statistics";

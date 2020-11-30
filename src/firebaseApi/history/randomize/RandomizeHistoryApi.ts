@@ -1,8 +1,8 @@
-import {RandomizeEntry} from "../../randomize/RandomizeEntry";
-import {RandomizeHistory} from "../../randomize/RandomizeHistory";
-import {UserId} from "../../user/UserId";
-import {DatabasePath} from "../DatabasePath";
-import {DatabaseWrapper} from "../DatabaseWrapper";
+import {RandomizeEntry} from "../../../randomize/RandomizeEntry";
+import {RandomizeHistory} from "../../../randomize/RandomizeHistory";
+import {UserId} from "../../../user/UserId";
+import {DatabasePath} from "../../DatabasePath";
+import {DatabaseWrapper} from "../../DatabaseWrapper";
 import {RandomizeHistoryYearDTO} from "./RandomizeHistoryYearDTO";
 
 /**
