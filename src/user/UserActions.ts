@@ -8,6 +8,7 @@
 import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
 import {User} from "./User";
+import {UserId} from "./UserId";
 import {UserRandomizer} from "./UserRandomizer";
 
 export class UserActions {
@@ -26,7 +27,7 @@ export class UserActions {
 	}
 
 	@afAsyncAction("UserActions.addUser")
-	public static async addUser(userId: string, userName: string) {
+	public static async addUser(userId: UserId, userName: string) {
 		const user = new User(userId, userName);
 		try {
 			Md.users.all.push(user);
@@ -38,7 +39,7 @@ export class UserActions {
 	}
 
 	@afAsyncAction("UserActions.removeUser")
-	public static async removeUser(userId: string) {
+	public static async removeUser(userId: UserId) {
 		const user = Md.users.all.getByKey(userId);
 		try {
 			Md.users.all.removeByKey(userId);

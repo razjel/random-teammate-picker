@@ -11,6 +11,7 @@ import {RandomizeEntry} from "./RandomizeEntry";
  */
 export class RandomizeHistory extends AFDataObject {
 	public entries = new BindArray<RandomizeEntry>();
+	public calculatedStatistics: any;
 
 	constructor() {
 		super();

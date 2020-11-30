@@ -6,12 +6,13 @@
  * All rights reserved.
  */
 import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
+import {UserId} from "./UserId";
 
 export class User extends AFDataObject {
-	public id: string;
+	public id: UserId;
 	public name: string;
 
-	constructor(id?: string, name?: string) {
+	constructor(id?: UserId, name?: string) {
 		super();
 		this.id = id;
 		this.name = name;

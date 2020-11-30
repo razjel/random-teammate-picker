@@ -10,6 +10,7 @@ import React from "react";
 import {BaseProps} from "../common/actionFlow/components/BaseProps";
 import {ConnectedComponent} from "../common/actionFlow/components/ConnectedComponent";
 import {UserActions} from "./UserActions";
+import {UserId} from "./UserId";
 
 interface Props extends BaseProps {}
 
@@ -18,7 +19,7 @@ export class AddUserView extends ConnectedComponent<Props, any> {
 	public inputName: HTMLInputElement;
 
 	public addUser = () => {
-		UserActions.addUser(this.inputId.value, this.inputName.value);
+		UserActions.addUser(this.inputId.value as UserId, this.inputName.value);
 		this.inputId.value = "";
 		this.inputName.value = "";
 	};

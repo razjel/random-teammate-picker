@@ -1,4 +1,5 @@
 import {User} from "../../user/User";
+import {UserId} from "../../user/UserId";
 import {DatabasePath} from "../DatabasePath";
 import {DatabaseWrapper} from "../DatabaseWrapper";
 import {UsersDTO} from "./UsersDTO";
@@ -26,11 +27,11 @@ export class UserApi {
 		return users;
 	}
 
-	public add(userId: string, userName: string): Promise<void> {
+	public add(userId: UserId, userName: string): Promise<void> {
 		return this.db.add(DatabasePath.users, userId, userName);
 	}
 
-	public remove(userId: string): Promise<string> {
+	public remove(userId: UserId): Promise<string> {
 		return this.db.remove(DatabasePath.users, userId);
 	}
 }
