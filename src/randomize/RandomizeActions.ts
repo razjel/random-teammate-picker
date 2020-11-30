@@ -15,6 +15,5 @@ export class RandomizeActions {
 		const history = await Md.randomizeHistoryApi.list();
 		Md.randomize.entries.clear();
 		Md.randomize.entries.pushArray(history.entries);
-		console.log("history:", JSON.stringify(history, null, 2));
 	}
 }
