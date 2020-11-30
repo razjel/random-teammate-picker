@@ -7,7 +7,7 @@
  */
 import {UserId} from "../user/UserId";
 import {RandomizeEntry} from "./RandomizeEntry";
-import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
+import {UserFrequencyStatistics} from "../statistics/UserFrequencyStatistics";
 
 export class RandomizeStatisticsCalculator {
 	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {

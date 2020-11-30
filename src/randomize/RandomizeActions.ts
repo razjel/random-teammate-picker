@@ -21,6 +21,6 @@ export class RandomizeActions {
 	@afAction("RandomizeActions.calculateUserFrequencyForAllHistory")
 	public static calculateUserFrequencyForAllHistory() {
 		const userFrequencyStatistics = new RandomizeStatisticsCalculator().calculate(Md.randomize.entries.toArray());
-		Md.randomize.userFrequency = userFrequencyStatistics;
+		Md.statistics.userFrequency = userFrequencyStatistics;
 	}
 }

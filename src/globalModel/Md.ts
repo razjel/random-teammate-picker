@@ -9,6 +9,7 @@ import {DatabaseWrapper} from "../firebaseApi/DatabaseWrapper";
 import {RandomizeHistoryApi} from "../firebaseApi/randomizeHistory/RandomizeHistoryApi";
 import {UserApi} from "../firebaseApi/user/UserApi";
 import {RandomizeHistory} from "../randomize/RandomizeHistory";
+import {Statistics} from "../statistics/Statistics";
 import {Users} from "../user/Users";
 
 export class Md {
@@ -16,4 +17,5 @@ export class Md {
 	public static randomizeHistoryApi: RandomizeHistoryApi;
 	public static users = new Users();
 	public static randomize = new RandomizeHistory();
+	public static statistics = new Statistics();
 }

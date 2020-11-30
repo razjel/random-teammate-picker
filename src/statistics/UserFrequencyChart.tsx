@@ -18,13 +18,13 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 	protected _onNewProps() {
 		super._onNewProps();
 		this.cleanInvalidatingProperties();
-		this.addInvalidatingProperty(Md.randomize.binds.userFrequency);
+		this.addInvalidatingProperty(Md.statistics.binds.userFrequency);
 	}
 
 	public getChartData() {
 		const data = [];
-		if (Md.randomize.userFrequency) {
-			for (const [userId, value] of Md.randomize.userFrequency.entries()) {
+		if (Md.statistics.userFrequency) {
+			for (const [userId, value] of Md.statistics.userFrequency.entries()) {
 				data.push({userId, value});
 			}
 		}
