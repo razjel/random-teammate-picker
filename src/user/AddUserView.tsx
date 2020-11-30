@@ -14,10 +14,12 @@ import {UserActions} from "./UserActions";
 interface Props extends BaseProps {}
 
 export class AddUserView extends ConnectedComponent<Props, any> {
+	public inputId: HTMLInputElement;
 	public inputName: HTMLInputElement;
 
 	public addUser = () => {
-		UserActions.addUser(this.inputName.value);
+		UserActions.addUser(this.inputId.value, this.inputName.value);
+		this.inputId.value = "";
 		this.inputName.value = "";
 	};
 
@@ -26,7 +28,10 @@ export class AddUserView extends ConnectedComponent<Props, any> {
 		return (
 			<div>
 				<h3>add user</h3>
-				<input ref={(c) => (this.inputName = c)} title={`name`} />
+				<span>id: </span>
+				<input ref={(c) => (this.inputId = c)} />
+				<span>name: </span>
+				<input ref={(c) => (this.inputName = c)} />
 				<button onClick={this.addUser}>add</button>
 			</div>
 		);

@@ -27,14 +27,13 @@ export class UserActions {
 	}
 
 	@afAsyncAction("UserActions.addUser")
-	public static async addUser(userName: string) {
-		const user = new User();
-		user.name = userName;
+	public static async addUser(userId: string, userName: string) {
+		const user = new User(userId, userName);
 		try {
-			const userId = await Md.userApi.add(user.name);
-			user.id = userId;
 			Md.users.all.push(user);
+			await Md.userApi.add(user.id, user.name);
 		} catch (error) {
+			Md.users.all.removeByKey(user.id);
 			alert(`failed to add user: ${user.id}-${user.name}`);
 		}
 	}

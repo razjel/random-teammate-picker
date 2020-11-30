@@ -1,4 +1,3 @@
-import {Md} from "../../globalModel/Md";
 import {DatabasePath} from "../DatabasePath";
 import {DatabaseWrapper} from "../DatabaseWrapper";
 import {UsersDTO} from "./UsersDTO";
@@ -21,11 +20,11 @@ export class UserApi {
 		return this.db.query(DatabasePath.users);
 	}
 
-	public add(userName: string): Promise<string> {
-		return this.db.listAdd(DatabasePath.users, userName);
+	public add(userId: string, userName: string): Promise<void> {
+		return this.db.add(DatabasePath.users, userId, userName);
 	}
 
 	public remove(userId: string): Promise<string> {
-		return this.db.listRemove(DatabasePath.users, userId);
+		return this.db.remove(DatabasePath.users, userId);
 	}
 }
