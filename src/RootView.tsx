@@ -15,6 +15,20 @@ import {UserListView} from "./user/UserListView";
 import {UserActions} from "./user/UserActions";
 
 export class RootView extends ConnectedComponent<any, any> {
+	public render() {
+		return (
+			<div>
+				<div>
+					<button onClick={UserActions.randomize}>randomize</button>
+					<button onClick={() => {}}>accept result on server</button>
+					<button onClick={() => {}}>revoke last result</button>
+				</div>
+				{/*{this.adminView()}*/}
+				{this.normalUserView()}
+			</div>
+		);
+	}
+
 	public adminView() {
 		return (
 			<div>
@@ -30,20 +44,6 @@ export class RootView extends ConnectedComponent<any, any> {
 			<div>
 				<UserListView title={"all users"} users={Md.users.all.binds} />
 				<UserListView title={"randomized users"} users={Md.users.randomSorted.binds} />
-			</div>
-		);
-	}
-
-	public render() {
-		return (
-			<div>
-				<div>
-					<button onClick={UserActions.randomize}>randomize</button>
-					<button onClick={() => {}}>accept result on server</button>
-					<button onClick={() => {}}>revoke last result</button>
-				</div>
-				{/*{this.adminView()}*/}
-				{this.normalUserView()}
 			</div>
 		);
 	}
