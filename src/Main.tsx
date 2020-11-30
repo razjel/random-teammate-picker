@@ -12,6 +12,7 @@ import {ActionFlowInit} from "./common/actionFlow/ActionFlowInit";
 import {FirebaseInitializer} from "./firebaseApi/FirebaseInitializer";
 import {RandomizeActions} from "./randomize/RandomizeActions";
 import {RootView} from "./RootView";
+import {StatisticsActions} from "./statistics/StatisticsActions";
 import {UserActions} from "./user/UserActions";
 
 async function init() {
@@ -19,7 +20,7 @@ async function init() {
 	FirebaseInitializer.initDatabase();
 	ActionFlowInit({startBrowserFrameManager: true});
 	await Promise.all([UserActions.listUsers(), RandomizeActions.listAll()]);
-	RandomizeActions.calculateUserFrequencyForAllHistory();
+	StatisticsActions.calculateUserFrequencyForAllHistory();
 }
 
 init();

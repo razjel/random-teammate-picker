@@ -5,6 +5,6 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {UserId} from "../user/UserId";
+import {UserId} from "../../user/UserId";
 
 export type UserFrequencyStatistics = Map<UserId, number>;

@@ -5,11 +5,11 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {UserId} from "../user/UserId";
-import {RandomizeEntry} from "./RandomizeEntry";
-import {UserFrequencyStatistics} from "../statistics/UserFrequencyStatistics";
+import {UserId} from "../../user/UserId";
+import {RandomizeEntry} from "../../randomize/RandomizeEntry";
+import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
-export class RandomizeStatisticsCalculator {
+export class UserFrequencyCalculator {
 	public calculate(entries: RandomizeEntry[]): UserFrequencyStatistics {
 		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {

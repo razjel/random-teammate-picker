@@ -6,7 +6,7 @@
  * All rights reserved.
  */
 import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
-import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
+import {UserFrequencyStatistics} from "./userFrequency/UserFrequencyStatistics";
 
 export class Statistics extends AFDataObject {
 	public userFrequency: UserFrequencyStatistics = null;

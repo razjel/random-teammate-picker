@@ -8,9 +8,9 @@
 
 import React from "react";
 import {Bar, BarChart, CartesianGrid, XAxis, YAxis} from "recharts";
-import {BaseProps} from "../common/actionFlow/components/BaseProps";
-import {ConnectedComponent} from "../common/actionFlow/components/ConnectedComponent";
-import {Md} from "../globalModel/Md";
+import {BaseProps} from "../../common/actionFlow/components/BaseProps";
+import {ConnectedComponent} from "../../common/actionFlow/components/ConnectedComponent";
+import {Md} from "../../globalModel/Md";
 
 interface Props extends BaseProps {}
 
