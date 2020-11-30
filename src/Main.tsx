@@ -10,6 +10,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {ActionFlowInit} from "./common/actionFlow/ActionFlowInit";
 import {FirebaseInitializer} from "./firebaseApi/FirebaseInitializer";
+import {RandomizeActions} from "./randomize/RandomizeActions";
 import {RootView} from "./RootView";
 import {UserActions} from "./user/UserActions";
 
@@ -17,7 +18,7 @@ async function init() {
 	FirebaseInitializer.initApp();
 	FirebaseInitializer.initDatabase();
 	ActionFlowInit({startBrowserFrameManager: true});
-	await UserActions.listUsers();
+	await Promise.all([UserActions.listUsers(), RandomizeActions.listAll()]);
 }
 
 init();

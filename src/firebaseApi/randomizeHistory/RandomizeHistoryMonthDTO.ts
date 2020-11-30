@@ -5,7 +5,8 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-export class RandomizeEntryDTO {
-	public date: Date;
-	public userOrder: string;
+import {RandomizeHistoryDayDTO} from "./RandomizeHistoryDayDTO";
+
+export class RandomizeHistoryMonthDTO {
+	[month: string]: RandomizeHistoryDayDTO;
 }

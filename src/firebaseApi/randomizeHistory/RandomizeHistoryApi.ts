@@ -1,6 +1,8 @@
+import {RandomizeEntry} from "../../randomize/RandomizeEntry";
+import {RandomizeHistory} from "../../randomize/RandomizeHistory";
 import {DatabasePath} from "../DatabasePath";
 import {DatabaseWrapper} from "../DatabaseWrapper";
-import {RandomizeHistoryDTO} from "./RandomizeHistoryDTO";
+import {RandomizeHistoryYearDTO} from "./RandomizeHistoryYearDTO";
 
 /**
  * Created by Szczepan Czaicki, s.czaicki@getprintbox.com
@@ -16,7 +18,25 @@ export class RandomizeHistoryApi {
 		this.db = db;
 	}
 
-	public list(): Promise<RandomizeHistoryDTO> {
-		return this.db.query(DatabasePath.randomizeHistory);
+	public async list(): Promise<RandomizeHistory> {
+		const historyDTO: RandomizeHistoryYearDTO = await this.db.query(DatabasePath.randomizeHistory);
+		const history = new RandomizeHistory();
+		for (const year in historyDTO) {
+			const monthDTO = historyDTO[year];
+			for (const month in monthDTO) {
+				const dayDTO = monthDTO[month];
+				for (const day in dayDTO) {
+					for (const userOrder of dayDTO[day]) {
+						history.entries.push(
+							new RandomizeEntry(
+								new Date(parseInt(year), parseInt(month), parseInt(day)),
+								userOrder.split(";")
+							)
+						);
+					}
+				}
+			}
+		}
+		return history;
 	}
 }

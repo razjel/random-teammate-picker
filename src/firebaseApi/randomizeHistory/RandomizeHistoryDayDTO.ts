@@ -5,8 +5,10 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {RandomizeEntryDTO} from "./RandomizeEntryDTO";
 
-export class RandomizeHistoryDTO {
-	[id: string]: RandomizeEntryDTO;
+export class RandomizeHistoryDayDTO {
+	/**
+	 * f.e. ["user1;user2","user2;user1"]
+	 */
+	[day: string]: string[];
 }
