@@ -1,8 +1,11 @@
+import {BindArray} from "../../../common/actionFlow/binding/BindArray";
 import {RandomizeHistoryEntry} from "../../../randomize/RandomizeHistoryEntry";
 import {Randomize} from "../../../randomize/Randomize";
 import {UserId} from "../../../user/UserId";
 import {DatabasePath} from "../../DatabasePath";
 import {DatabaseWrapper} from "../../DatabaseWrapper";
+import {HistoryPathGenerator} from "../HistoryPathGenerator";
+import {PastDaysPathGenerator} from "./PastDaysPathGenerator";
 import {RandomizeHistoryYearDTO} from "./RandomizeHistoryYearDTO";
 
 /**
@@ -19,9 +22,9 @@ export class RandomizeHistoryApi {
 		this.db = db;
 	}
 
-	public async list(): Promise<Randomize> {
+	public async list(): Promise<RandomizeHistoryEntry[]> {
 		const historyDTO: RandomizeHistoryYearDTO = await this.db.query(DatabasePath.randomizeHistory);
-		const history = new Randomize();
+		const historyEntries: RandomizeHistoryEntry[] = [];
 		for (const year in historyDTO) {
 			const monthDTO = historyDTO[year];
 			for (const month in monthDTO) {
@@ -30,25 +33,38 @@ export class RandomizeHistoryApi {
 					const entriesMap = dayDTO[day];
 					for (const key in entriesMap) {
 						const order = entriesMap[key];
-						history.history.push(
-							new RandomizeHistoryEntry(new Date(`${year}-${month}-${day}T12:00:00.000Z`), order.split(";"))
+						historyEntries.push(
+							new RandomizeHistoryEntry(
+								new Date(`${year}-${month}-${day}T12:00:00.000Z`),
+								order.split(";")
+							)
 						);
 					}
 				}
 			}
 		}
-		return history;
+		return historyEntries;
 	}
+
+	public async listLast7Days() {
+		const paths = PastDaysPathGenerator.generate(7);
+		const promises = [];
+		for (const path of paths) {
+			promises.push(
+				this.db.query([DatabasePath.randomizeHistory, path].join("/")).then((result) => {
+					console.log("result:", result);
+				})
+			);
+		}
+		await Promise.all(promises);
+	}
+
+	public async listLast30Days() {}
 
 	public async addRandomizeResult(userOrder: UserId[]): Promise<void> {
 		const currentDate = new Date();
 		return this.db.pushToArray(
-			[
-				DatabasePath.randomizeHistory,
-				currentDate.getFullYear(),
-				currentDate.getMonth() + 1,
-				currentDate.getDate(),
-			].join("/"),
+			[DatabasePath.randomizeHistory, HistoryPathGenerator.generateFromDate(currentDate)].join("/"),
 			userOrder.join(";")
 		);
 	}

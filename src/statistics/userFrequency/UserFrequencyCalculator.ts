@@ -10,7 +10,7 @@ import {RandomizeHistoryEntry} from "../../randomize/RandomizeHistoryEntry";
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 export class UserFrequencyCalculator {
-	public calculate(entries: RandomizeHistoryEntry[]): UserFrequencyStatistics {
+	public static calculate(entries: RandomizeHistoryEntry[]): UserFrequencyStatistics {
 		const userFrequency: UserFrequencyStatistics = new Map<UserId, number>();
 		for (const entry of entries) {
 			const userCount = entry.order.length;

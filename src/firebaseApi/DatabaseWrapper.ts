@@ -15,16 +15,11 @@ export class DatabaseWrapper {
 	}
 
 	public query(path: string): Promise<any> {
-		return new Promise((resolve, reject) => {
-			this.firebaseDatabase.ref(path).on(
-				"value",
-				(snapshot: firebase.database.DataSnapshot) => {
-					resolve(snapshot.val());
-				},
-				(errorObject) => {
-					reject(errorObject.code);
-				}
-			);
+		return new Promise((resolve) => {
+			this.firebaseDatabase
+				.ref(path)
+				.get()
+				.then((result) => resolve(result.val()));
 		});
 	}
 
