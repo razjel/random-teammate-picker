@@ -5,9 +5,9 @@
  * Copyright (c) 2015, Printbox www.getprintbox.com
  * All rights reserved.
  */
-import {HistoryPathGenerator} from "../HistoryPathGenerator";
+import {HistoryPathGenerator} from "./HistoryPathGenerator";
 
-export class PastDaysPathGenerator {
+export class PastDaysPathsGenerator {
 	public static generate(days: number): string[] {
 		const paths = [];
 		const currentDate = new Date();

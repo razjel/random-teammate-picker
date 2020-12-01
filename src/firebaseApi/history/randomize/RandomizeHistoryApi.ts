@@ -5,7 +5,7 @@ import {UserId} from "../../../user/UserId";
 import {DatabasePath} from "../../DatabasePath";
 import {DatabaseWrapper} from "../../DatabaseWrapper";
 import {HistoryPathGenerator} from "../HistoryPathGenerator";
-import {PastDaysPathGenerator} from "./PastDaysPathGenerator";
+import {PastDaysPathsGenerator} from "../PastDaysPathsGenerator";
 import {RandomizeHistoryYearDTO} from "./RandomizeHistoryYearDTO";
 
 /**
@@ -47,7 +47,7 @@ export class RandomizeHistoryApi {
 	}
 
 	public async listLast7Days() {
-		const paths = PastDaysPathGenerator.generate(7);
+		const paths = PastDaysPathsGenerator.generate(7);
 		const promises = [];
 		for (const path of paths) {
 			promises.push(
@@ -57,6 +57,7 @@ export class RandomizeHistoryApi {
 			);
 		}
 		await Promise.all(promises);
+		return [];
 	}
 
 	public async listLast30Days() {}

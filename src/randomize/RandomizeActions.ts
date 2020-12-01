@@ -14,7 +14,7 @@ import {UserRandomizer} from "./UserRandomizer";
 export class RandomizeActions {
 	@afAsyncAction("RandomizeActions.listAll")
 	public static async listAllHistoryFromServer() {
-		const entries = await Md.randomizeHistoryApi.list();
+		const entries = await Md.randomizeHistoryApi.listLast7Days();
 		Md.randomize.history.clear();
 		Md.randomize.history.pushArray(entries);
 	}
