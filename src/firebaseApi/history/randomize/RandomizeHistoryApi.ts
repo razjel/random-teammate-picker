@@ -6,7 +6,11 @@ import {DatabasePath} from "../../DatabasePath";
 import {DatabaseWrapper} from "../../DatabaseWrapper";
 import {HistoryPathGenerator} from "../HistoryPathGenerator";
 import {PastDaysPathsGenerator} from "../PastDaysPathsGenerator";
-import {RandomizeHistoryYearDTO} from "./RandomizeHistoryYearDTO";
+import {PathAndDate} from "../PathAndDate";
+import {RandomizeHistoryEntryDTO} from "./dto/RandomizeHistoryEntryDTO";
+import {RandomizeHistoryYearDTO} from "./dto/RandomizeHistoryYearDTO";
+import {RandomizeHistoryLoader} from "./RandomizeHistoryLoader";
+import {RandomizeOrderEntryParser} from "./RandomizeOrderEntryParser";
 
 /**
  * Created by Szczepan Czaicki, s.czaicki@getprintbox.com
@@ -22,45 +26,17 @@ export class RandomizeHistoryApi {
 		this.db = db;
 	}
 
-	public async list(): Promise<RandomizeHistoryEntry[]> {
-		const historyDTO: RandomizeHistoryYearDTO = await this.db.query(DatabasePath.randomizeHistory);
-		const historyEntries: RandomizeHistoryEntry[] = [];
-		for (const year in historyDTO) {
-			const monthDTO = historyDTO[year];
-			for (const month in monthDTO) {
-				const dayDTO = monthDTO[month];
-				for (const day in dayDTO) {
-					const entriesMap = dayDTO[day];
-					for (const key in entriesMap) {
-						const order = entriesMap[key];
-						historyEntries.push(
-							new RandomizeHistoryEntry(
-								new Date(`${year}-${month}-${day}T12:00:00.000Z`),
-								order.split(";")
-							)
-						);
-					}
-				}
-			}
-		}
-		return historyEntries;
+	public async listAllHistory(): Promise<RandomizeHistoryEntry[]> {
+		return new RandomizeHistoryLoader(this.db).loadAllHistory();
 	}
 
-	public async listLast7Days() {
-		const paths = PastDaysPathsGenerator.generate(7);
-		const promises = [];
-		for (const path of paths) {
-			promises.push(
-				this.db.query([DatabasePath.randomizeHistory, path].join("/")).then((result) => {
-					console.log("result:", result);
-				})
-			);
-		}
-		await Promise.all(promises);
-		return [];
+	public async listLast7Days(): Promise<RandomizeHistoryEntry[]> {
+		return new RandomizeHistoryLoader(this.db).loadHistoryFromLastDays(7);
 	}
 
-	public async listLast30Days() {}
+	public async listLast30Days(): Promise<RandomizeHistoryEntry[]> {
+		return new RandomizeHistoryLoader(this.db).loadHistoryFromLastDays(30);
+	}
 
 	public async addRandomizeResult(userOrder: UserId[]): Promise<void> {
 		const currentDate = new Date();
