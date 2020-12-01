@@ -11,6 +11,7 @@ import {ConnectedComponent} from "./common/actionFlow/components/ConnectedCompon
 import {Md} from "./globalModel/Md";
 import {RandomizeActions} from "./randomize/RandomizeActions";
 import {AddUserView} from "./user/AddUserView";
+import {UserFrequencyChart} from "./statistics/userFrequency/UserFrequencyChart";
 import {RemoveableUserListView} from "./user/RemoveableUserListView";
 import {UserListView} from "./user/UserListView";
 
@@ -24,6 +25,14 @@ export class RootView extends ConnectedComponent<any, any> {
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}
+				<UserFrequencyChart
+					title={"user frequency last 7 days"}
+					userFrequencyStatistics={Md.statistics.binds.userFrequencyLast7Days}
+				/>
+				<UserFrequencyChart
+					title={"user frequency last 30 days"}
+					userFrequencyStatistics={Md.statistics.binds.userFrequencyLast30Days}
+				/>
 			</div>
 		);
 	}
