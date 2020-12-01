@@ -8,7 +8,6 @@
 
 import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
-import {RandomizedOrder} from "./RandomizedOrder";
 import {UserRandomizer} from "./UserRandomizer";
 
 export class RandomizeActions {
@@ -23,12 +22,24 @@ export class RandomizeActions {
 	public static randomize() {
 		const randomizedUsers = UserRandomizer.randomize(Md.users.all.toArray());
 		Md.randomize.randomizedOrder.regenerateId();
+		Md.randomize.randomizedOrder.wasSavedOnServer = false;
 		Md.randomize.randomizedOrder.order.clear();
 		Md.randomize.randomizedOrder.order.pushArray(randomizedUsers);
 	}
 
 	@afAsyncAction("UserActions.addRandomizeResultToServer")
 	public static async addRandomizeResultToServer() {
-		await Md.randomizeHistoryApi.addRandomizeResult(Md.randomize.randomizedOrder.map((user) => user.id));
+		if (!Md.randomize.randomizedOrder.wasSavedOnServer) {
+			try {
+				Md.randomize.randomizedOrder.wasSavedOnServer = true;
+				const order = Md.randomize.randomizedOrder.order.map((user) => user.id);
+				await Md.randomizeHistoryApi.addRandomizeResult(order);
+			} catch (error) {
+				Md.randomize.randomizedOrder.wasSavedOnServer = false;
+				alert("failed to add randomize result to server");
+			}
+		} else {
+			alert("this randomize result was already saved on server");
+		}
 	}
 }
