@@ -8,6 +8,7 @@
 
 import {afAction, afAsyncAction} from "../common/actionFlow/action/decorators/AFActionDecorators";
 import {Md} from "../globalModel/Md";
+import {StatisticsActions} from "../statistics/StatisticsActions";
 import {UserRandomizer} from "./UserRandomizer";
 
 export class RandomizeActions {
@@ -34,6 +35,8 @@ export class RandomizeActions {
 				Md.randomize.randomizedOrder.wasSavedOnServer = true;
 				const order = Md.randomize.randomizedOrder.order.map((user) => user.id);
 				await Md.randomizeHistoryApi.addRandomizeResult(order);
+				await RandomizeActions.listAllHistoryFromServer();
+				StatisticsActions.calculateUserFrequencyForAllHistory();
 			} catch (error) {
 				Md.randomize.randomizedOrder.wasSavedOnServer = false;
 				alert("failed to add randomize result to server");

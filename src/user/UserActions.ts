@@ -20,6 +20,10 @@ export class UserActions {
 
 	@afAsyncAction("UserActions.addUser")
 	public static async addUser(userId: UserId, userName: string) {
+		if (Md.users.all.getByKey(userId)) {
+			alert("user with this id already exists: " + userId);
+			return;
+		}
 		const user = new User(userId, userName);
 		try {
 			Md.users.all.push(user);
