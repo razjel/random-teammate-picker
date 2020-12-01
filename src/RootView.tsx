@@ -14,7 +14,6 @@ import {UserFrequencyChart} from "./statistics/userFrequency/UserFrequencyChart"
 import {AddUserView} from "./user/AddUserView";
 import {RemoveableUserListView} from "./user/RemoveableUserListView";
 import {UserListView} from "./user/UserListView";
-import {UserActions} from "./user/UserActions";
 
 export class RootView extends ConnectedComponent<any, any> {
 	public render() {
@@ -22,12 +21,18 @@ export class RootView extends ConnectedComponent<any, any> {
 			<div>
 				<div>
 					<button onClick={RandomizeActions.randomize}>randomize</button>
-					<button onClick={RandomizeActions.addRandomizeResultToServer}>accept result on server</button>
+					<button onClick={RandomizeActions.saveRandomizeResultToServer}>save result on server</button>
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}
-				<UserFrequencyChart userFrequencyStatistics={Md.statistics.binds.userFrequencyLast7Days} />
-				<UserFrequencyChart userFrequencyStatistics={Md.statistics.binds.userFrequencyLast30Days} />
+				<UserFrequencyChart
+					title={"user frequency last 7 days"}
+					userFrequencyStatistics={Md.statistics.binds.userFrequencyLast7Days}
+				/>
+				<UserFrequencyChart
+					title={"user frequency last 30 days"}
+					userFrequencyStatistics={Md.statistics.binds.userFrequencyLast30Days}
+				/>
 			</div>
 		);
 	}

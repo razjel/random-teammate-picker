@@ -13,6 +13,7 @@ import {ConnectedComponent} from "../../common/actionFlow/components/ConnectedCo
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 interface Props extends BaseProps {
+	title: string;
 	userFrequencyStatistics: UserFrequencyStatistics;
 }
 
@@ -39,10 +40,10 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 	public render() {
 		return (
 			<div>
-				<h3>user frequency chart</h3>
+				<h3>{this.props.title}</h3>
 				<BarChart
 					width={600}
-					height={300}
+					height={200}
 					data={this.getChartData()}
 					margin={{
 						top: 5,

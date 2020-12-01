@@ -40,9 +40,13 @@ export class RandomizeActions {
 		Md.randomize.randomizedOrder.order.pushArray(randomizedUsers);
 	}
 
-	@afAsyncAction("UserActions.addRandomizeResultToServer")
-	public static async addRandomizeResultToServer() {
-		if (!Md.randomize.randomizedOrder.wasSavedOnServer) {
+	@afAsyncAction("UserActions.saveRandomizeResultToServer")
+	public static async saveRandomizeResultToServer() {
+		if (Md.randomize.randomizedOrder.wasSavedOnServer) {
+			alert("this randomize result was already saved on server");
+		} else if (!Md.randomize.randomizedOrder.order.length) {
+			alert("there is nothing to save");
+		} else {
 			try {
 				Md.randomize.randomizedOrder.wasSavedOnServer = true;
 				const order = Md.randomize.randomizedOrder.order.map((user) => user.id);
@@ -53,8 +57,6 @@ export class RandomizeActions {
 				Md.randomize.randomizedOrder.wasSavedOnServer = false;
 				alert("failed to add randomize result to server");
 			}
-		} else {
-			alert("this randomize result was already saved on server");
 		}
 	}
 }
