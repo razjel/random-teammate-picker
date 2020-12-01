@@ -1,12 +1,4 @@
-/*
- * a
- */
-
-i/*
- * a
- */
-
-mport {afAction} from "./action/decorators/AFActionDecorators";
+import {afAction} from "./action/decorators/AFActionDecorators";
 
 export class BrowserFrameManager {
 	public static init(): void {
