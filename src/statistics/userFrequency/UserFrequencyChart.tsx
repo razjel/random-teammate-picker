@@ -10,21 +10,17 @@ import React from "react";
 import {Bar, BarChart, CartesianGrid, XAxis, YAxis} from "recharts";
 import {BaseProps} from "../../common/actionFlow/components/BaseProps";
 import {ConnectedComponent} from "../../common/actionFlow/components/ConnectedComponent";
-import {Md} from "../../globalModel/Md";
+import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
-interface Props extends BaseProps {}
+interface Props extends BaseProps {
+	userFrequencyStatistics: UserFrequencyStatistics;
+}
 
 export class UserFrequencyChart extends ConnectedComponent<Props, any> {
-	protected _onNewProps() {
-		super._onNewProps();
-		this.cleanInvalidatingProperties();
-		this.addInvalidatingProperty(Md.statistics.binds.userFrequency);
-	}
-
 	public getChartData() {
 		const data = [];
-		if (Md.statistics.userFrequency) {
-			for (const [userId, value] of Md.statistics.userFrequency.entries()) {
+		if (this.props.userFrequencyStatistics) {
+			for (const [userId, value] of this.props.userFrequencyStatistics.entries()) {
 				data.push({userId, value});
 			}
 		}

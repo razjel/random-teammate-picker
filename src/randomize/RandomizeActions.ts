@@ -12,11 +12,23 @@ import {StatisticsActions} from "../statistics/StatisticsActions";
 import {UserRandomizer} from "./UserRandomizer";
 
 export class RandomizeActions {
-	@afAsyncAction("RandomizeActions.listAll")
-	public static async listAllHistoryFromServer() {
+	@afAsyncAction("RandomizeActions.listHistoryLast7Days")
+	public static async listHistoryLast7Days() {
 		const entries = await Md.randomizeHistoryApi.listLast7Days();
-		Md.randomize.history.clear();
-		Md.randomize.history.pushArray(entries);
+		Md.randomize.historyForLast7Days.clear();
+		Md.randomize.historyForLast7Days.pushArray(entries);
+	}
+
+	@afAsyncAction("RandomizeActions.listHistoryLast30Days")
+	public static async listHistoryLast30Days() {
+		const entries = await Md.randomizeHistoryApi.listLast30Days();
+		Md.randomize.historyForLast30Days.clear();
+		Md.randomize.historyForLast30Days.pushArray(entries);
+	}
+
+	@afAsyncAction("RandomizeActions.refreshRandomizeHistory")
+	public static async refreshRandomizeHistory() {
+		await Promise.all([RandomizeActions.listHistoryLast7Days(), RandomizeActions.listHistoryLast30Days()]);
 	}
 
 	@afAction("RandomizeActions.randomize")
@@ -35,8 +47,8 @@ export class RandomizeActions {
 				Md.randomize.randomizedOrder.wasSavedOnServer = true;
 				const order = Md.randomize.randomizedOrder.order.map((user) => user.id);
 				await Md.randomizeHistoryApi.addRandomizeResult(order);
-				await RandomizeActions.listAllHistoryFromServer();
-				StatisticsActions.calculateUserFrequencyForAllHistory();
+				await RandomizeActions.refreshRandomizeHistory();
+				StatisticsActions.calculateUserFrequency();
 			} catch (error) {
 				Md.randomize.randomizedOrder.wasSavedOnServer = false;
 				alert("failed to add randomize result to server");

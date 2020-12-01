@@ -26,7 +26,8 @@ export class RootView extends ConnectedComponent<any, any> {
 				</div>
 				{/*{this.adminView()}*/}
 				{this.normalUserView()}
-				<UserFrequencyChart />
+				<UserFrequencyChart userFrequencyStatistics={Md.statistics.binds.userFrequencyLast7Days} />
+				<UserFrequencyChart userFrequencyStatistics={Md.statistics.binds.userFrequencyLast30Days} />
 			</div>
 		);
 	}

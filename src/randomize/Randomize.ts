@@ -1,6 +1,5 @@
 import {AFDataObject} from "../common/actionFlow/binding/AFDataObject";
 import {BindArray} from "../common/actionFlow/binding/BindArray";
-import {User} from "../user/User";
 import {RandomizedOrder} from "./RandomizedOrder";
 import {RandomizeHistoryEntry} from "./RandomizeHistoryEntry";
 
@@ -12,7 +11,8 @@ import {RandomizeHistoryEntry} from "./RandomizeHistoryEntry";
  * All rights reserved.
  */
 export class Randomize extends AFDataObject {
-	public history = new BindArray<RandomizeHistoryEntry>();
+	public historyForLast7Days = new BindArray<RandomizeHistoryEntry>();
+	public historyForLast30Days = new BindArray<RandomizeHistoryEntry>();
 	public randomizedOrder = new RandomizedOrder();
 
 	constructor() {

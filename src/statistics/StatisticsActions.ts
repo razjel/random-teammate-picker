@@ -10,9 +10,13 @@ import {UserFrequencyCalculator} from "./userFrequency/UserFrequencyCalculator";
  * All rights reserved.
  */
 export class StatisticsActions {
-	@afAction("StatisticsActions.calculateUserFrequencyForAllHistory")
-	public static calculateUserFrequencyForAllHistory() {
-		const userFrequencyStatistics = UserFrequencyCalculator.calculate(Md.randomize.history.toArray());
-		Md.statistics.userFrequency = userFrequencyStatistics;
+	@afAction("StatisticsActions.calculateUserFrequency")
+	public static calculateUserFrequency() {
+		Md.statistics.userFrequencyLast7Days = UserFrequencyCalculator.calculate(
+			Md.randomize.historyForLast7Days.toArray()
+		);
+		Md.statistics.userFrequencyLast30Days = UserFrequencyCalculator.calculate(
+			Md.randomize.historyForLast30Days.toArray()
+		);
 	}
 }
