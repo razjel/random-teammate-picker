@@ -1,8 +1,9 @@
 /*
- * Created by Paweł Pęcikiewicz, p.pecikiewicz@getprintbox.com
- *
- * Copyright (c) 2015-2017, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
+ */
+
+/*
+ * a
  */
 
 import _ from "underscore";
@@ -15,13 +16,6 @@ import {BindData} from "./BindData";
 import {BindUtil} from "./BindUtil";
 import {CombinedDiff} from "./dataDiff/CombinedDiff";
 
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-11-24
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
- */
 export class DataDiffUtil {
 	//---------------------------------------------------------------
 	//

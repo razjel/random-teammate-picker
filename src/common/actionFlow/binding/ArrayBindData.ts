@@ -4,13 +4,6 @@ import {BindContext} from "./BindContext";
 import {BindUtil} from "./BindUtil";
 import _ from "underscore";
 
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-10-07
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
- */
 export class ArrayBindData extends BindData {
 	/** points to itself */
 	public binds: ArrayBindData;

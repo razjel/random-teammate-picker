@@ -1,6 +1,9 @@
 /*
- * Copyright (c) 2019, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
+ */
+
+/*
+ * a
  */
 
 import {ArrayUtil} from "../../util/ArrayUtil";

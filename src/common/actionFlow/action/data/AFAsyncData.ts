@@ -1,9 +1,12 @@
 /*
- * Copyright (c) 2018, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
  */
 
-import {IAFAsyncAPI} from "../interfaces/IAFAsyncAPI";
+i/*
+ * a
+ */
+
+mport {IAFAsyncAPI} from "../interfaces/IAFAsyncAPI";
 import {IAFStaticAsyncActions} from "../interfaces/IAFStaticAsyncActions";
 import {AFBaseProcess} from "../process/AFBaseProcess";
 import {AFLegacyBaseProcess} from "../process/AFLegacyBaseProcess";

@@ -1,6 +1,9 @@
-/**
- * Copyright (c) 2018-present, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
+ */
+
+/*
+ * a
  */
 export class CombinedDiff {
 	public oldVal: any;

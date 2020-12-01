@@ -1,14 +1,15 @@
+/*
+ * a
+ */
+
+/*
+ * a
+ */
+
 import {BindData} from "../../binding/BindData";
 import {ArrayBindData} from "../../binding/ArrayBindData";
 import {BindArray} from "../../binding/BindArray";
 
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-10-08
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
- */
 export class BindDataDebugUtil {
 	public static logBindDatas(obj: any): void {
 		var bd: BindData = obj.binds.binds;

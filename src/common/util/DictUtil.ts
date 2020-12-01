@@ -1,12 +1,12 @@
-import _ from "underscore";
-
-/**
- * Created by Wojciech Adaszyński, w.adaszynski@getprintbox.com
- * Date: 14.07.16
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
  */
+
+/*
+ * a
+ */
+
+import _ from "underscore";
 
 export class DictUtil {
 	public static getObjectLength(obj: any): number {

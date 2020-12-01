@@ -1,9 +1,9 @@
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-10-06
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
+ */
+
+/*
+ * a
  */
 export class IConnectedView {
 	public pbxLib: {

@@ -1,6 +1,9 @@
 /*
- * Copyright (c) 2019, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
+ */
+
+/*
+ * a
  */
 
 import {ObjectUtil} from "../../util/ObjectUtil";

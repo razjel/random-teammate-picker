@@ -1,3 +1,11 @@
+/*
+ * a
+ */
+
+/*
+ * a
+ */
+
 import firebase from "firebase/app";
 import {DatabaseWrapper} from "./DatabaseWrapper";
 import {Md} from "../globalModel/Md";

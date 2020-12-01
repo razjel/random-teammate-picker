@@ -1,6 +1,9 @@
 /*
- * Copyright (c) 2015-2017, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
+ */
+
+/*
+ * a
  */
 
 import {BindArray} from "../actionFlow/binding/BindArray";

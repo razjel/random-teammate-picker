@@ -1,7 +1,11 @@
-/**
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
  */
+
+/*
+ * a
+ */
+
 import {FunctionUtil} from "../../../util/FunctionUtil";
 import {IAFActionDecoratorOptions} from "../interfaces/IAFActionDecoratorOptions";
 import {IAFAsyncActionDecoratorOptions} from "../interfaces/IAFAsyncActionDecoratorOptions";

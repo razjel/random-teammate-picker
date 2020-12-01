@@ -7,13 +7,6 @@ import {BindContext} from "./BindContext";
 import {ObjectUtil} from "../../util/ObjectUtil";
 import {BindUtil} from "./BindUtil";
 
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-10-06
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
- */
 export class BindData {
 	public static sID: number = 0;
 	public uid: number = BindData.sID++;

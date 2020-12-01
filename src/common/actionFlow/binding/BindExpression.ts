@@ -1,12 +1,13 @@
+/*
+ * a
+ */
+
+/*
+ * a
+ */
+
 import {IConnectedView} from "./IConnectedView";
 
-/**
- * Created by Michal Czaicki, m.czaicki@getprintbox.com
- * Date: 2015-10-22
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
- */
 export class BindExpression {
 	protected _func: Function;
 	//protected _refreshOnBinds:BindData[]

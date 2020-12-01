@@ -1,6 +1,9 @@
-/**
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
+ */
+
+/*
+ * a
  */
 import {ActionFlowLogging} from "../../debug/ActionFlowLogging";
 import {ActionTree} from "../../debug/actionTree/ActionTree";

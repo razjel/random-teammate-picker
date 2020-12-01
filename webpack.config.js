@@ -21,13 +21,13 @@ module.exports = {
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
 	},
-	target: "es6",
+	target: "es5",
 	output: {
 		filename: "index.js",
 		path: path.resolve(__dirname, "dist"),
 	},
 	optimization: {
-		minimize: false,
+		minimize: true,
 	},
 	devServer: {
 		contentBase: path.join(__dirname, "dist"),

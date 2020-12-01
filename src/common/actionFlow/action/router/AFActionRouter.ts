@@ -1,6 +1,9 @@
-/**
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
+ */
+
+/*
+ * a
  */
 
 import _ from "underscore";

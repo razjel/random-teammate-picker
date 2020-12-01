@@ -1,9 +1,9 @@
-/**
- * Created by Krzysztof Tryniecki, k.tryniecki@getprintbox.com
- * Date: 17.11.2015
- *
- * Copyright (c) 2015, Printbox www.getprintbox.com
- * All rights reserved.
+/*
+ * a
+ */
+
+/*
+ * a
  */
 import {AFDataObject} from "../../binding/AFDataObject";
 

@@ -1,3 +1,11 @@
+/*
+ * a
+ */
+
+/*
+ * a
+ */
+
 export class PromiseUtil {
 	public static promiseTimeout(promise: Promise<any>, ms: number) {
 		const timeout = new Promise((resolve, reject) => {

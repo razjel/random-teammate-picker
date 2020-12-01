@@ -1,9 +1,12 @@
 /*
- * Copyright (c) 2018, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
  */
 
-import {afAction} from "./action/decorators/AFActionDecorators";
+i/*
+ * a
+ */
+
+mport {afAction} from "./action/decorators/AFActionDecorators";
 
 export class BrowserFrameManager {
 	public static init(): void {

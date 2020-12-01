@@ -1,3 +1,11 @@
+/*
+ * a
+ */
+
+/*
+ * a
+ */
+
 export class StringUtil {
 	/**
 	 * Trims string ( removes all spaces in front of and at the end of string

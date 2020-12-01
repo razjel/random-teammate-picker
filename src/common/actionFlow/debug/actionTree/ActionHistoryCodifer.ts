@@ -1,8 +1,9 @@
 /*
- * Created by Paweł Pęcikiewicz, p.pecikiewicz@getprintbox.com
- *
- * Copyright (c) 2015-2017, Printbox www.getprintbox.com
- * All rights reserved.
+ * a
+ */
+
+/*
+ * a
  */
 
 import {ObjectUtil} from "../../../util/ObjectUtil";
