@@ -11,6 +11,7 @@ import {Bar, BarChart, CartesianGrid, XAxis, YAxis} from "recharts";
 import {BaseProps} from "../../common/actionFlow/components/BaseProps";
 import {ConnectedComponent} from "../../common/actionFlow/components/ConnectedComponent";
 import {CSS} from "../../CSS";
+import {UserQuery} from "../../user/UserQuery";
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
 interface Props extends BaseProps {
@@ -23,7 +24,7 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 		const data = [];
 		if (this.props.userFrequencyStatistics) {
 			for (const [userId, value] of this.props.userFrequencyStatistics.entries()) {
-				data.push({userId, value});
+				data.push({name: UserQuery.getUserName(userId), value});
 			}
 		}
 		data.sort((a, b) => {
@@ -54,7 +55,7 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 					}}
 				>
 					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="userId" />
+					<XAxis dataKey="name" />
 					<YAxis />
 					<Bar dataKey="value" fill="#8884d8" />
 				</BarChart>
