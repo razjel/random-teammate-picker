@@ -11,7 +11,7 @@ import ReactDOM from "react-dom";
 import {ActionFlowInit} from "./common/actionFlow/ActionFlowInit";
 import {FirebaseInitializer} from "./firebaseApi/FirebaseInitializer";
 import {RandomizeActions} from "./randomize/RandomizeActions";
-import {RootView} from "./RootView";
+import {UserRandomizeDashboard} from "./dashboard/UserRandomizeDashboard";
 import {StatisticsActions} from "./statistics/StatisticsActions";
 import {UserActions} from "./user/UserActions";
 
@@ -24,4 +24,4 @@ async function init() {
 }
 
 init();
-ReactDOM.render(<RootView />, document.getElementById("app"));
+ReactDOM.render(<UserRandomizeDashboard />, document.getElementById("app"));
