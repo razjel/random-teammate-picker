@@ -1,0 +1,11 @@
+.group {
+	&_h {
+		display: flex;
+		flex-direction: row
+	}
+
+	&_v {
+		display: flex;
+		flex-direction: column;
+	}
+}

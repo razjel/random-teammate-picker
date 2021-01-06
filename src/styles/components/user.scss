@@ -1,0 +1,10 @@
+$user-bg-color: $theme-color2;
+
+.user {
+	&__name {
+		margin: 5px;
+		padding: 5px;
+		background-color: $user-bg-color;
+		font-size: 16pt;
+	}
+}
