@@ -18,7 +18,7 @@ import {UserListView} from "../user/UserListView";
 export class UserRandomizeDashboard extends ConnectedComponent<any, any> {
 	public render() {
 		return (
-			<div className="group_v">
+			<div className="group_v UserRandomizeDashboard">
 				<div className="actions__container group_h">
 					<button className="action__button" onClick={RandomizeActions.randomize}>
 						randomize
