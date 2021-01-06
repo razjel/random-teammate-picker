@@ -2,6 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
 	entry: "./src/Main.tsx",
@@ -16,22 +18,27 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(scss|css)$/i,
-				use: ["style-loader", "css-loader", "sass-loader"],
+				test: /\.css/i,
+				use: [MiniCssExtractPlugin.loader, "css-loader"],
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					MiniCssExtractPlugin.loader,
+					"css-loader",
+					"sass-loader",
+				],
 			},
 		],
 	},
 	devtool: "inline-source-map",
 	resolve: {
-		extensions: [".tsx", ".ts", ".js"],
+		extensions: [".tsx", ".ts", ".js", ".scss"],
 	},
 	target: "es5",
 	output: {
 		filename: "index.js",
 		path: path.resolve(__dirname, "dist"),
-	},
-	optimization: {
-		minimize: true,
 	},
 	devServer: {
 		contentBase: path.join(__dirname, "dist"),
@@ -54,5 +61,7 @@ module.exports = {
 				isDebug: true,
 			},
 		}),
+		new MiniCssExtractPlugin(),
+		new CleanWebpackPlugin(),
 	],
 };

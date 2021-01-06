@@ -8,7 +8,6 @@
 
 import React from "react";
 import {ConnectedComponent} from "../common/actionFlow/components/ConnectedComponent";
-import {CSS} from "../CSS";
 import {Md} from "../globalModel/Md";
 import {RandomizeActions} from "../randomize/RandomizeActions";
 import {UserFrequencyChart} from "../statistics/userFrequency/UserFrequencyChart";
@@ -19,20 +18,20 @@ import {UserListView} from "../user/UserListView";
 export class UserRandomizeDashboard extends ConnectedComponent<any, any> {
 	public render() {
 		return (
-			<div style={{...CSS.vGroup, fontFamily: "Verdana"}}>
-				<div style={{...CSS.hGroup, ...CSS.actionsContainer}}>
-					<button style={CSS.actionButton} onClick={RandomizeActions.randomize}>
+			<div className="group_v">
+				<div className="actions__container group_h">
+					<button className="action__button" onClick={RandomizeActions.randomize}>
 						randomize
 					</button>
-					<button style={CSS.actionButton} onClick={RandomizeActions.saveRandomizeResultToServer}>
+					<button className="action__button" onClick={RandomizeActions.saveRandomizeResultToServer}>
 						save result on server
 					</button>
 				</div>
-				<div style={{...CSS.hGroup}}>
+				<div className="group_h">
 					{/*{this.adminView()}*/}
 					{this.normalUserView()}
 				</div>
-				<div style={{...CSS.hGroup}}>
+				<div className="group_h">
 					<UserFrequencyChart
 						title={"user frequency last 7 days"}
 						userFrequencyStatistics={Md.statistics.binds.userFrequencyLast7Days}

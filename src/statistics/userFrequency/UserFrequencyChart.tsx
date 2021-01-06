@@ -10,7 +10,6 @@ import React from "react";
 import {Bar, BarChart, CartesianGrid, XAxis, YAxis} from "recharts";
 import {BaseProps} from "../../common/actionFlow/components/BaseProps";
 import {ConnectedComponent} from "../../common/actionFlow/components/ConnectedComponent";
-import {CSS} from "../../CSS";
 import {UserQuery} from "../../user/UserQuery";
 import {UserFrequencyStatistics} from "./UserFrequencyStatistics";
 
@@ -41,7 +40,7 @@ export class UserFrequencyChart extends ConnectedComponent<Props, any> {
 
 	public render() {
 		return (
-			<div style={CSS.chart}>
+			<div className="chart">
 				<h3>{this.props.title}</h3>
 				<BarChart
 					width={600}
